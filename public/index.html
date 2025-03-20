@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget Planner</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+  <nav class="tabs-nav">
+    <button class="tab-btn active" data-tab="settings">Настройки</button>
+    <button class="tab-btn" data-tab="decomposition">Декомпозиция</button>
+    <button class="tab-btn" data-tab="composition">Композиция</button>
+  </nav>
+
+  <div class="tab-content active" id="settings">
+    <div class="settings-form">
+      <h2>Настройки параметров</h2>
+      <div class="input-group">
+        <input
+                type="number"
+                id="paramValue"
+                placeholder="Сумма"
+                min="0"
+                step="100"
+                required
+        >
+        <input
+                type="month"
+                id="paramMonth"
+                required
+                pattern="\d{4}-\d{2}"
+                placeholder="Месяц (ГГГГ-ММ)"
+        >
+        <button class="btn-primary" onclick="budgetApp.addParam()">
+          Добавить параметр
+        </button>
+      </div>
+      <div class="params-list" id="paramsList"></div>
+      <button class="btn-success" onclick="budgetApp.saveSettings()">Сохранить настройки</button>
+    </div>
+  </div>
+
+  <div class="tab-content" id="decomposition">
+    <h2>Ежедневное распределение</h2>
+    <div class="table-container">
+      <table id="decompTable"></table>
+    </div>
+  </div>
+
+  <div class="tab-content" id="composition">
+    <h2>Месячные итоги</h2>
+    <div class="table-container">
+      <table id="compTable"></table>
+    </div>
+  </div>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
